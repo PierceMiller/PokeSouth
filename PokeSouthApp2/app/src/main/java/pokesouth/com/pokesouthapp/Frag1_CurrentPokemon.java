@@ -43,8 +43,8 @@ public class Frag1_CurrentPokemon extends Fragment {
         lstFrag1Pokemon = new ArrayList<>();
 
         //LEVEL 5
-        lstFrag1Pokemon.add(new Pokemon( "Cresselia", "Normal: 1633 | Boosted: 2041", R.drawable.ic_cresselia, R.drawable.ic_cresselia_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Deoxys (Normal Forme)", "Normal: 1806 | Boosted: 2257", R.drawable.ic_deoxys_normal, R.drawable.ic_deoxys_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Heatran", "Normal: 2011 | Boosted: 2515", R.drawable.ic_heatran, R.drawable.ic_heatran_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Deoxys (Attack Forme)", "Normal: 1474 | Boosted: 1842", R.drawable.ic_deoxys_attack, R.drawable.ic_deoxys_attack_stats));
 
         //LEVEL 4
         lstFrag1Pokemon.add(new Pokemon( "Alolan Marowak", "Normal: 1048 | Boosted: 1311", R.drawable.ic_alolan_marowak, R.drawable.ic_alolan_marowak_stats));
