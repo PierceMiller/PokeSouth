@@ -7,9 +7,14 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_map"
+            android:id="@+id/nav_pokemo_map"
             android:icon="@drawable/ic_pokemo"
-            android:title="Pokemo Map"/>
+            android:title="Pokemo.NZ"/>
+
+        <item
+            android:id="@+id/nav_chch_map"
+            android:icon="@drawable/ic_chch_map"
+            android:title="Christchurch Map"/>
 
         <item
             android:id="@+id/nav_current_raids"
