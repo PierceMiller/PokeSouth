@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="327dp"
-        android:layout_height="148dp"
+        android:layout_width="329dp"
+        android:layout_height="152dp"
         android:layout_gravity="center"
         android:layout_marginStart="37dp"
         android:layout_marginTop="100dp"
