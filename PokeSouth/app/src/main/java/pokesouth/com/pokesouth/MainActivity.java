@@ -119,32 +119,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_current_raids:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new pokesouth.com.pokesouth.Frag1_CurrentPokemon()).commit();
+                        new Frag1_CurrentPokemon()).commit();
                 break;
             case R.id.nav_level_5:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new pokesouth.com.pokesouth.Frag2_All_Level_5s()).commit();
+                        new Frag2_All_Level_5s()).commit();
                 break;
             case R.id.nav_level_4:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new pokesouth.com.pokesouth.Frag3_All_Level_4s()).commit();
+                        new Frag3_All_Level_4s()).commit();
                 break;
             case R.id.nav_level_3:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new pokesouth.com.pokesouth.Frag4_All_Level_3s()).commit();
+                        new Frag4_All_Level_3s()).commit();
                 break;
             case R.id.nav_level_2:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new pokesouth.com.pokesouth.Frag5_All_Level_2s()).commit();
+                        new Frag5_All_Level_2s()).commit();
                 break;
             case R.id.nav_level_1:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new pokesouth.com.pokesouth.Frag6_All_Level_1s()).commit();
+                        new Frag6_All_Level_1s()).commit();
                 break;
             case R.id.nav_pokemo_map:
 
@@ -175,9 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new About()).commit();
 
-
                 break;
-
         }
 
         drawer.closeDrawer(GravityCompat.START);
