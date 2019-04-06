@@ -77,6 +77,8 @@ public class Frag5_All_Level_2s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Alolan Exeggutor", "Normal: 1722 | Boosted: 2153", R.drawable.ic_alolan_exeggutor, R.drawable.ic_alolan_exeggutor_stats));
         lstFrag1Pokemon.add(new Pokemon( "Breloom", "Normal: 1502 | Boosted: 1877", R.drawable.ic_breloom, R.drawable.ic_breloom_stats));
         lstFrag1Pokemon.add(new Pokemon( "Monferno", "Normal: 899 | Boosted: 1124", R.drawable.ic_monferno, R.drawable.ic_monferno_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Masquerian", "Normal: 1297 | Boosted: 1622", R.drawable.ic_masquerian, R.drawable.ic_ninjask_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Combee", "Normal: 282 | Boosted: 353", R.drawable.ic_combee, R.drawable.ic_ninjask_stats));
 
     }
 }

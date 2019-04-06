@@ -1,4 +1,4 @@
-package pokesouth.com.pokesouth;
+/*package pokesouth.com.pokesouth;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import pokesouth.com.pokesouth.R;
 
 public class Map_Chch extends Fragment {
 
@@ -60,4 +62,4 @@ public class Map_Chch extends Fragment {
 
         return v;
     }
-}
+}*/

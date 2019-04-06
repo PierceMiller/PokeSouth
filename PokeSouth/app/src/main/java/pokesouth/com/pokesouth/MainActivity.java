@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .getIcon()
                 .setColorFilter(Color.parseColor(brown), PorterDuff.Mode.DST);
 
-        navigationView.getMenu()
+        /*navigationView.getMenu()
                 .findItem(R.id.nav_chch_map)
                 .getIcon()
-                .setColorFilter(Color.parseColor(brown), PorterDuff.Mode.DST);
+                .setColorFilter(Color.parseColor(brown), PorterDuff.Mode.DST);*/
 
         navigationView.getMenu()
                 .findItem(R.id.nav_current_raids)
@@ -151,28 +151,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new Map_Pokemo()).commit();
                 break;
-            case R.id.nav_chch_map:
+            /*case R.id.nav_chch_map:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new Map_Chch()).commit();
-                break;
+                break;*/
             case R.id.nav_credit:
 
                 Toast.makeText(this, "All content & design ©\n" +
-                        "Pokemon Database, 2008-2018\n" +
+                        "Pokemon Database, 2008-2019\n" +
                         "Pokémon images & names ©\n" +
-                        "Nintendo/Game Freak, 1995-2018 ", Toast.LENGTH_SHORT).show();
+                        "Nintendo/Game Freak, 1995-2019 ", Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.nav_disclaimer:
+
                 Toast.makeText(this, "PokéSouth, is in no way associated with Pokémon Go © or Niantic inc.\n" +
                         "This is purely a service, that aims to help trainers, within Pokémon Go ©", Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.nav_About:
 
-                Toast.makeText(this, "PokéSouth is a community that is built around Pokémon Go ©\n" +
-                        "and can be found at:\nhttps://discord.gg/ZHpd9pQ", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new About()).commit();
+
+
                 break;
 
         }

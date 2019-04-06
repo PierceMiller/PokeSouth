@@ -66,6 +66,7 @@ public class Frag2_All_Level_5s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Deoxys (Defence Forme)", "Normal: 1299 | Boosted: 1624", R.drawable.ic_deoxys_defense, R.drawable.ic_deoxys_stats));
         lstFrag1Pokemon.add(new Pokemon( "Deoxys (Attack Forme)", "Normal: 1474 | Boosted: 1842", R.drawable.ic_deoxys_attack, R.drawable.ic_deoxys_attack_stats));
         lstFrag1Pokemon.add(new Pokemon( "Giratina (Altered)", "Normal: 1931 | Boosted: 2414", R.drawable.ic_giratina, R.drawable.ic_giratina_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Giratina (Origin)", "Normal: 2105 | Boosted: 2631", R.drawable.ic_giratina_origin, R.drawable.ic_giratina_stats));
         lstFrag1Pokemon.add(new Pokemon( "Cresselia", "Normal: 1633 | Boosted: 2041", R.drawable.ic_cresselia, R.drawable.ic_cresselia_stats));
         lstFrag1Pokemon.add(new Pokemon( "Heatran", "Normal: 2145 | Boosted: 2681", R.drawable.ic_heatran, R.drawable.ic_heatran_stats));
         lstFrag1Pokemon.add(new Pokemon( "Palkia", "Normal: 2280 | Boosted: 2850", R.drawable.ic_palkia, R.drawable.ic_palkia_stats));

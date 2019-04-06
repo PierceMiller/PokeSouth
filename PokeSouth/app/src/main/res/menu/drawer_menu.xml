@@ -9,12 +9,7 @@
         <item
             android:id="@+id/nav_pokemo_map"
             android:icon="@drawable/ic_pokemo"
-            android:title="Pokemo.NZ"/>
-
-        <item
-            android:id="@+id/nav_chch_map"
-            android:icon="@drawable/ic_chch_map"
-            android:title="Christchurch Map"/>
+            android:title="Pokemo.nz Map"/>
 
         <item
             android:id="@+id/nav_current_raids"
@@ -79,7 +74,7 @@
 
             <item
                 android:id="@+id/nav_About"
-                android:title="About"
+                android:title="Join Us"
                 android:icon="@drawable/ic_credit_disclaimer_about"/>
 
         </menu>
