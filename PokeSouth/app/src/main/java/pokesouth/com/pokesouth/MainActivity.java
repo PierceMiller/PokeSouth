@@ -151,11 +151,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new Map_Pokemo()).commit();
                 break;
-            /*case R.id.nav_chch_map:
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new Map_Chch()).commit();
-                break;*/
             case R.id.nav_credit:
 
                 Toast.makeText(this, "All content & design ©\n" +
