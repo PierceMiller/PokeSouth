@@ -71,6 +71,9 @@ public class Frag2_All_Level_5s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Heatran", "Normal: 2145 | Boosted: 2681", R.drawable.ic_heatran, R.drawable.ic_heatran_stats));
         lstFrag1Pokemon.add(new Pokemon( "Palkia", "Normal: 2280 | Boosted: 2850", R.drawable.ic_palkia, R.drawable.ic_palkia_stats));
         lstFrag1Pokemon.add(new Pokemon( "Dialga", "Normal: 2307 | Boosted: 2884", R.drawable.ic_dialga, R.drawable.ic_dialga_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Azelf", "Normal: 1834 | Boosted: 2293", R.drawable.ic_azelf, R.drawable.ic_uxie_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Mesprit", "Normal: 1747 | Boosted: 2184", R.drawable.ic_mesprit, R.drawable.ic_uxie_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Uxie", "Normal: 1442 | Boosted: 1803", R.drawable.ic_uxie, R.drawable.ic_uxie_stats));
 
     }
 }

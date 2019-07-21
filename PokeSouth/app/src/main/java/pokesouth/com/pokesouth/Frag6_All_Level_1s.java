@@ -88,6 +88,9 @@ public class Frag6_All_Level_1s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Bagon", "Normal: 660 | Boosted: 826", R.drawable.ic_bagon, R.drawable.ic_bagon_stats));
         lstFrag1Pokemon.add(new Pokemon( "Caterpie", "Normal: 249 | Boosted: 312", R.drawable.ic_caterpie, R.drawable.ic_ninjask_stats));
         lstFrag1Pokemon.add(new Pokemon( "Skorupi", "Normal: 576 | Boosted: 721", R.drawable.ic_skorupi, R.drawable.ic_ninjask_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Lotad", "Normal: 342 | Boosted: 427", R.drawable.lotad, R.drawable.ic_magikarp_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Nidoran", "Normal: 491 | Boosted: 614", R.drawable.ic_nidoran, R.drawable.ic_ninjask_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Horsea", "Normal: 603 | Boosted: 754", R.drawable.ic_horsea, R.drawable.ic_wailmer_stats));
 
     }
 }

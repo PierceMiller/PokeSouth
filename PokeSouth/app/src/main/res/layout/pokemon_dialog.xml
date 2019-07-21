@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pokemon Name"
-            android:textColor="@android:color/white"
+            android:textColor="#d9d9d9"
             android:textStyle="bold"
             android:textSize="24sp"
             android:layout_marginTop="90dp"/>
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:text="Max Cp"
-            android:textColor="@android:color/white"
+            android:textColor="#d9d9d9"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"/>
 

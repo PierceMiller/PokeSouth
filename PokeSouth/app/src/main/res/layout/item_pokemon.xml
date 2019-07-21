@@ -25,14 +25,14 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Pokemon Name"
-            android:textColor="#FFFFFF"
+            android:textColor="#d9d9d9"
             android:id="@+id/name_pokemon"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MAX CP "
-            android:textColor="#FFFFFF"
+            android:textColor="#d9d9d9"
             android:id="@+id/max_cp"/>
 
     </LinearLayout>
