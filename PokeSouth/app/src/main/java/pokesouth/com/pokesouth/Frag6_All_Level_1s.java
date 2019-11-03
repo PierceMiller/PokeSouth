@@ -41,8 +41,8 @@ public class Frag6_All_Level_1s extends Fragment {
         super.onCreate(savedInstanceState);
 
         lstFrag1Pokemon = new ArrayList<>();
-
-        //TODO: ADD MAGNEMITE
+        
+        //TODO: Add Gen 5 Raids
 
         //LEVEL 1
         lstFrag1Pokemon.add(new Pokemon( "Bulbasaur", "Normal: 637 | Boosted: 796", R.drawable.ic_bulbasaur, R.drawable.ic_bulbasaur_stats));
@@ -91,6 +91,8 @@ public class Frag6_All_Level_1s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Lotad", "Normal: 342 | Boosted: 427", R.drawable.lotad, R.drawable.ic_magikarp_stats));
         lstFrag1Pokemon.add(new Pokemon( "Nidoran", "Normal: 491 | Boosted: 614", R.drawable.ic_nidoran, R.drawable.ic_ninjask_stats));
         lstFrag1Pokemon.add(new Pokemon( "Horsea", "Normal: 603 | Boosted: 754", R.drawable.ic_horsea, R.drawable.ic_wailmer_stats));
-
+        lstFrag1Pokemon.add(new Pokemon( "Patrat", "Normal: 452 | Boosted: 565", R.drawable.ic_patrat, R.drawable.ic_swablu_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Misdreavus", "Normal: 1100 | Boosted: 1376", R.drawable.ic_misdreavus, R.drawable.ic_misdreavus_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Klink", "Normal: 546 | Boosted: 683", R.drawable.ic_klink, R.drawable.ic_mawile_stats));
     }
 }

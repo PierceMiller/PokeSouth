@@ -60,13 +60,12 @@ public class Frag4_All_Level_3s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Jolteon", "Normal: 1650 | Boosted: 2063", R.drawable.ic_jolteon, R.drawable.ic_jolteon_stats));
         lstFrag1Pokemon.add(new Pokemon( "Flareon", "Normal: 1730 | Boosted: 2163", R.drawable.ic_flareon, R.drawable.ic_flareon_stats));
         lstFrag1Pokemon.add(new Pokemon( "Espeon", "Normal: 1221 | Boosted: 1526", R.drawable.ic_espeon, R.drawable.ic_espeon_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Umbreon", "Normal: 1811 | Boosted: 2264", R.drawable.ic_umbreon, R.drawable.ic_umbreon_stats));
         lstFrag1Pokemon.add(new Pokemon( "Porygon", "Normal: 982 | Boosted: 1228", R.drawable.ic_porygon, R.drawable.ic_porygon_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Granbull", "Normal: 1458 | Boosted: 1823", R.drawable.ic_granbull, R.drawable.ic_granbull_stats));
         lstFrag1Pokemon.add(new Pokemon( "Omastar", "Normal: 1592 | Boosted: 1990", R.drawable.ic_omastar, R.drawable.ic_omastar_stats));
         lstFrag1Pokemon.add(new Pokemon( "Kabutops", "Normal: 1550 | Boosted: 1938", R.drawable.ic_kabutops, R.drawable.ic_kabutops_stats));
         lstFrag1Pokemon.add(new Pokemon( "Aerodactyl", "Normal: 1590 | Boosted: 1988", R.drawable.ic_aerodactyl, R.drawable.ic_aerodactyl_stats));
         lstFrag1Pokemon.add(new Pokemon( "Azumarill", "Normal: 907 | Boosted: 1134", R.drawable.ic_azumarill, R.drawable.ic_azumarill_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Granbull", "Normal: 1458 | Boosted: 1823", R.drawable.ic_granbull, R.drawable.ic_granbull_stats));
         lstFrag1Pokemon.add(new Pokemon( "Shuckle", "Normal: 231 | Boosted: 289", R.drawable.ic_shuckle, R.drawable.ic_shuckle_stats));
         lstFrag1Pokemon.add(new Pokemon( "Piloswine", "Normal: 1340 | Boosted: 1675", R.drawable.ic_piloswine, R.drawable.ic_piloswine_stats));
         lstFrag1Pokemon.add(new Pokemon( "Donphan", "Normal: 1722 | Boosted: 2152", R.drawable.ic_donphan, R.drawable.ic_donphan_stats));

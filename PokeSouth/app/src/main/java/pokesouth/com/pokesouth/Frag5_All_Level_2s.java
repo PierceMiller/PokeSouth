@@ -61,7 +61,6 @@ public class Frag5_All_Level_2s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Crocconaw", "Normal: 984 | Boosted: 1230", R.drawable.ic_croconaw, R.drawable.ic_croconaw_stats));
         lstFrag1Pokemon.add(new Pokemon( "Lanturn", "Normal: 1191 | Boosted: 1489", R.drawable.ic_lanturn, R.drawable.ic_lanturn_stats));
         lstFrag1Pokemon.add(new Pokemon( "Sudowoodo", "Normal: 1227 | Boosted: 1534", R.drawable.ic_sudowoodo, R.drawable.ic_sudowoodo_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Misdreavus", "Normal: 1100 | Boosted: 1376", R.drawable.ic_misdreavus, R.drawable.ic_misdreavus_stats));
         lstFrag1Pokemon.add(new Pokemon( "Pineco", "Normal: 633 | Boosted: 791", R.drawable.ic_pineco, R.drawable.ic_pineco_stats));
         lstFrag1Pokemon.add(new Pokemon( "Sneasel", "Normal: 1172 | Boosted: 1465", R.drawable.ic_sneasel, R.drawable.ic_sneasel_stats));
         lstFrag1Pokemon.add(new Pokemon( "Magcargo", "Normal: 972 | Boosted: 1215", R.drawable.ic_magcargo, R.drawable.ic_magcargo_stats));
@@ -79,6 +78,7 @@ public class Frag5_All_Level_2s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Monferno", "Normal: 899 | Boosted: 1124", R.drawable.ic_monferno, R.drawable.ic_monferno_stats));
         lstFrag1Pokemon.add(new Pokemon( "Masquerian", "Normal: 1297 | Boosted: 1622", R.drawable.ic_masquerian, R.drawable.ic_ninjask_stats));
         lstFrag1Pokemon.add(new Pokemon( "Combee", "Normal: 282 | Boosted: 353", R.drawable.ic_combee, R.drawable.ic_ninjask_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Yamask", "Normal: 561 | Boosted: 701", R.drawable.ic_yamask, R.drawable.ic_yamask_stats));
 
     }
 }

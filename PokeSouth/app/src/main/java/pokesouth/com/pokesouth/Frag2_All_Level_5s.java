@@ -74,6 +74,7 @@ public class Frag2_All_Level_5s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Azelf", "Normal: 1834 | Boosted: 2293", R.drawable.ic_azelf, R.drawable.ic_uxie_stats));
         lstFrag1Pokemon.add(new Pokemon( "Mesprit", "Normal: 1747 | Boosted: 2184", R.drawable.ic_mesprit, R.drawable.ic_uxie_stats));
         lstFrag1Pokemon.add(new Pokemon( "Uxie", "Normal: 1442 | Boosted: 1803", R.drawable.ic_uxie, R.drawable.ic_uxie_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Darkrai", "Normal: 2136 | Boosted: 2671", R.drawable.ic_darkrai, R.drawable.ic_darkrai_stats));
 
     }
 }

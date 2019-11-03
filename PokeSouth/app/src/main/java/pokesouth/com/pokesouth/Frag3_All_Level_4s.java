@@ -69,5 +69,7 @@ public class Frag3_All_Level_4s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Alolan Marowak", "Normal: 1048 | Boosted: 1311", R.drawable.ic_alolan_marowak, R.drawable.ic_alolan_marowak_stats));
         lstFrag1Pokemon.add(new Pokemon( "Metagross", "Normal: 2166 | Boosted: 2708", R.drawable.ic_metagross, R.drawable.ic_metagross_stats));
         lstFrag1Pokemon.add(new Pokemon( "Shiftry", "Normal: 1263 | Boosted: 1333", R.drawable.ic_shiftry, R.drawable.ic_shiftry_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Umbreon", "Normal: 1153 | Boosted: 1221", R.drawable.ic_umbreon, R.drawable.ic_umbreon_stats));
+
     }
 }

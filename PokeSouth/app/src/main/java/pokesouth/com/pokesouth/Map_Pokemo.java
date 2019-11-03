@@ -34,7 +34,7 @@ public class Map_Pokemo extends Fragment {
 
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setDomStorageEnabled(true);
-        webView.loadUrl("https://map.pokemo.nz/");
+        webView.loadUrl("https://map.pokemo.nz/#pokesouth");
 
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setDisplayZoomControls(false);

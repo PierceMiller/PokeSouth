@@ -43,36 +43,35 @@ public class Frag1_CurrentPokemon extends Fragment {
         lstFrag1Pokemon = new ArrayList<>();
 
         //LEVEL 5
-        lstFrag1Pokemon.add(new Pokemon( "Armoured Mewtwo", "Normal: 1821 | Boosted: 2276", R.drawable.ic_amewtwo, R.drawable.ic_amewtwo_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Deoxys (Speed Forme)", "Normal: 1645 | Boosted: 2056", R.drawable.ic_deoxys_speed, R.drawable.ic_deoxys_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Mewtwo", "Normal: 2387 | Boosted: 2984", R.drawable.ic_mewtwo, R.drawable.ic_mewtwo_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Darkrai", "Normal: 2136 | Boosted: 2671", R.drawable.ic_darkrai, R.drawable.ic_darkrai_stats));
 
         //LEVEL 4
         lstFrag1Pokemon.add(new Pokemon( "Alolan Marowak", "Normal: 1048 | Boosted: 1311", R.drawable.ic_alolan_marowak, R.drawable.ic_alolan_marowak_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Houndoom", "Normal: 1505 | Boosted: 1882", R.drawable.ic_houndoom, R.drawable.ic_houndoom_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Umbreon", "Normal: 1153 | Boosted: 1221", R.drawable.ic_umbreon, R.drawable.ic_umbreon_stats));
         lstFrag1Pokemon.add(new Pokemon( "Tyranitar", "Normal: 2191 | Boosted: 2739", R.drawable.ic_tyranitar, R.drawable.ic_tyranitar_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Shiftry", "Normal: 1263 | Boosted: 1333", R.drawable.ic_shiftry, R.drawable.ic_shiftry_stats));
         lstFrag1Pokemon.add(new Pokemon( "Absol", "Normal: 1443 | Boosted: 1805", R.drawable.ic_absol, R.drawable.ic_absol_stats));
 
         //LEVEL 3
         lstFrag1Pokemon.add(new Pokemon( "Alolan Raichu", "Normal: 1306 | Boosted: 1633", R.drawable.ic_raichu, R.drawable.ic_raichu_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Machamp", "Normal: 1746 | Boosted: 2183", R.drawable.ic_machamp, R.drawable.ic_machamp_stats));
         lstFrag1Pokemon.add(new Pokemon( "Gengar", "Normal: 1644 | Boosted: 2056", R.drawable.ic_gengar, R.drawable.ic_gengar_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Scyther", "Normal: 1546 | Boosted: 1933", R.drawable.ic_scyther, R.drawable.ic_scyther_stats));
         lstFrag1Pokemon.add(new Pokemon( "Sharpedo", "Normal: 1246 | Boosted: 1558", R.drawable.ic_sharpedo, R.drawable.ic_sharpedo_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Skuntank", "Normal: 1347 | Boosted: 1684", R.drawable.ic_skuntank, R.drawable.ic_skuntank_stats));
 
         //LEVEL 2
-        lstFrag1Pokemon.add(new Pokemon( "Mawile", "Normal: 934 | Boosted: 1167", R.drawable.ic_mawile, R.drawable.ic_mawile_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Alolan Exeggutor", "Normal: 1722 | Boosted: 2153", R.drawable.ic_alolan_exeggutor, R.drawable.ic_alolan_exeggutor_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Pineco", "Normal: 633 | Boosted: 791", R.drawable.ic_pineco, R.drawable.ic_pineco_stats));
         lstFrag1Pokemon.add(new Pokemon( "Sneasel", "Normal: 1172 | Boosted: 1465", R.drawable.ic_sneasel, R.drawable.ic_sneasel_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Sableye", "Normal: 843 | Boosted: 1054", R.drawable.ic_sableye, R.drawable.ic_sableye_stats));
         lstFrag1Pokemon.add(new Pokemon( "Mawile", "Normal: 934 | Boosted: 1167", R.drawable.ic_mawile, R.drawable.ic_mawile_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Yamask", "Normal: 561 | Boosted: 701", R.drawable.ic_yamask, R.drawable.ic_yamask_stats));
 
         //LEVEL 1
-        lstFrag1Pokemon.add(new Pokemon( "Nidoran", "Normal: 491 | Boosted: 614", R.drawable.ic_nidoran, R.drawable.ic_ninjask_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Horsea", "Normal: 603 | Boosted: 754", R.drawable.ic_horsea, R.drawable.ic_wailmer_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Shuppet", "Normal: 581 | Boosted: 727", R.drawable.ic_shuppet, R.drawable.ic_shuppet_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Duskull", "Normal: 403 | Boosted: 504", R.drawable.ic_duskull, R.drawable.ic_duskull_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Shinx", "Normal: 500 | Boosted: 625", R.drawable.ic_shinx, R.drawable.ic_shinx_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Bulbasaur", "Normal: 637 | Boosted: 796", R.drawable.ic_bulbasaur, R.drawable.ic_bulbasaur_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Charmander", "Normal: 560 | Boosted: 700", R.drawable.ic_charmander, R.drawable.ic_charmander_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Squirtle", "Normal: 540 | Boosted: 675", R.drawable.ic_squirtle, R.drawable.ic_squirtle_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Misdreavus", "Normal: 1100 | Boosted: 1376", R.drawable.ic_misdreavus, R.drawable.ic_misdreavus_stats));
         lstFrag1Pokemon.add(new Pokemon( "Drifloon", "Normal: 684 | Boosted: 855", R.drawable.ic_drifloon, R.drawable.ic_drifloon_stats));
-     }
+        lstFrag1Pokemon.add(new Pokemon( "Klink", "Normal: 546 | Boosted: 683", R.drawable.ic_klink, R.drawable.ic_mawile_stats));
+
+
+    }
 }
