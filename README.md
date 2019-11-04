@@ -1,5 +1,5 @@
 <p align="center"
-  <a href="https://imgbb.com/"><img src="https://i.ibb.co/cFQCrD7/imgonline-com-ua-Replace-Color-b1-ALY0-VPK1m-QQB6-removebg-preview.png"   alt="imgonline-com-ua-Replace-Color-b1-ALY0-VPK1m-QQB6-removebg-preview" border="0"></a>
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/qY815v5/pokemon.png" alt="pokemon" border="0"></a>
 </p>
 
 - Android App that provides information on raid bosses
