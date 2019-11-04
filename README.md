@@ -3,7 +3,7 @@
 </p>
 
 - Android App that provides information on raid bosses
-- A community that is over 600 people 
+- A community that is over 600 people and growing each day
 
 Discord Link: https://discord.gg/d2uzXek
 
