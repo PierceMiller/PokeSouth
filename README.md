@@ -1,6 +1,6 @@
 # PokeSouth
 - Android App that provides information on raid bosses
-- A community that is over 400 people 
+- A community that is over 600 people 
 
 Discord Link: https://discord.gg/d2uzXek
 
