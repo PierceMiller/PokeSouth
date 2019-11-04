@@ -1,4 +1,5 @@
-# PokeSouth
+![banner](https://ibb.co/T8tbgmF)
+
 - Android App that provides information on raid bosses
 - A community that is over 600 people 
 
