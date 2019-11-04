@@ -1,5 +1,6 @@
 <p align="center"
   <a href="https://imgbb.com/"><img src="https://i.ibb.co/qY815v5/pokemon.png" alt="pokemon" border="0"></a>
+  
   - Android App that provides information on raid bosses
   - A community that is over 600 people and growing each day
 </p>
