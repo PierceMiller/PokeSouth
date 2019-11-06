@@ -1,6 +1,9 @@
-# PokeSouth
+<p align="center"
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/qY815v5/pokemon.png" alt="pokemon" border="0"></a>
+</p>
+
 - Android App that provides information on raid bosses
-- A community that is over 400 people 
+- A community that is over 600 people and growing each day
 
 Discord Link: https://discord.gg/d2uzXek
 
