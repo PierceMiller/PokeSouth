@@ -6,8 +6,8 @@ android {
         applicationId "pokesouth.com.pokesouth"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 23
-        versionName "3.8.2"
+        versionCode 24
+        versionName "3.9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

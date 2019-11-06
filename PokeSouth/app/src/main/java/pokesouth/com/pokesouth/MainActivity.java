@@ -37,9 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = findViewById(R.id.toolbar);
 
-        toolbar.setTitle(" ");
-
-        BitmapDrawable background = new BitmapDrawable (BitmapFactory.decodeResource(getResources(), R.drawable.ic_test1));
+        BitmapDrawable background = new BitmapDrawable (BitmapFactory.decodeResource(getResources(), R.drawable.ic_cback2));
         background.setTileModeX(Shader.TileMode.CLAMP);
         toolbar.setBackground(background);
         setSupportActionBar(toolbar);

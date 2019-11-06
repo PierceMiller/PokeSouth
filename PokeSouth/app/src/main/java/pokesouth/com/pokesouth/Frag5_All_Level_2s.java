@@ -79,6 +79,7 @@ public class Frag5_All_Level_2s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Masquerian", "Normal: 1297 | Boosted: 1622", R.drawable.ic_masquerian, R.drawable.ic_ninjask_stats));
         lstFrag1Pokemon.add(new Pokemon( "Combee", "Normal: 282 | Boosted: 353", R.drawable.ic_combee, R.drawable.ic_ninjask_stats));
         lstFrag1Pokemon.add(new Pokemon( "Yamask", "Normal: 561 | Boosted: 701", R.drawable.ic_yamask, R.drawable.ic_yamask_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Quilava", "Normal: 944 | Boosted: 1180", R.drawable.ic_quilava, R.drawable.ic_quilava_stats));
 
     }
 }

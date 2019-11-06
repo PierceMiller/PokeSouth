@@ -43,7 +43,7 @@ public class Frag4_All_Level_3s extends Fragment {
         lstFrag1Pokemon = new ArrayList<>();
 
         //LEVEL 3
-        lstFrag1Pokemon.add(new Pokemon( "Ninetales", "Normal: 1319 | Boosted: 1649", R.drawable.ic_ninetales, R.drawable.ic_ninetales_stats));
+        lstFrag1Pokemon.add(new Pokemon( "Ninetales", "Normal: 1302 | Boosted: 1628", R.drawable.ic_ninetales, R.drawable.ic_ninetales_stats));
         lstFrag1Pokemon.add(new Pokemon( "Aracanine", "Normal: 1731 | Boosted: 2164", R.drawable.ic_arcanine, R.drawable.ic_arcanine_stats));
         lstFrag1Pokemon.add(new Pokemon( "Alakazam", "Normal: 1747 | Boosted: 2184", R.drawable.ic_alakazam, R.drawable.ic_alakazam_stats));
         lstFrag1Pokemon.add(new Pokemon( "Machamp", "Normal: 1746 | Boosted: 2183", R.drawable.ic_machamp, R.drawable.ic_machamp_stats));

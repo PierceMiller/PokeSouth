@@ -62,7 +62,6 @@ public class Frag6_All_Level_1s extends Fragment {
         lstFrag1Pokemon.add(new Pokemon( "Chikorita", "Normal: 534 | Boosted: 668", R.drawable.ic_chikorita, R.drawable.ic_chikorita_stats));
         lstFrag1Pokemon.add(new Pokemon( "Bayleef", "Normal: 831 | Boosted: 1039", R.drawable.ic_bayleef, R.drawable.ic_bayleef_stats));
         lstFrag1Pokemon.add(new Pokemon( "Cyndaquil", "Normal: 560 | Boosted: 700", R.drawable.ic_cyndaquil, R.drawable.ic_cyndaquil_stats));
-        lstFrag1Pokemon.add(new Pokemon( "Quilava", "Normal: 944 | Boosted: 1180", R.drawable.ic_quilava, R.drawable.ic_quilava_stats));
         lstFrag1Pokemon.add(new Pokemon( "Totodile", "Normal: 646 | Boosted: 808", R.drawable.ic_totodile, R.drawable.ic_totodile_stats));
         lstFrag1Pokemon.add(new Pokemon( "Mareep", "Normal: 566 | Boosted: 708", R.drawable.ic_mareep, R.drawable.ic_mareep_stats));
         lstFrag1Pokemon.add(new Pokemon( "Sunkern", "Normal: 226 | Boosted: 282", R.drawable.ic_sunkern, R.drawable.ic_sunkern_stats));
