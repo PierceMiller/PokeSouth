@@ -11,7 +11,7 @@ PokeSouth App: https://play.google.com/store/apps/details?id=pokesouth.com.pokes
 
 Pokemo Map: https://map.pokemo.nz/
 
-Demonstraion: https://www.youtube.com/watch?v=Yrsc7pFPv2c
+Demonstration: https://www.youtube.com/watch?v=Yrsc7pFPv2c
 
 # What I Learned
 - Web Views
