@@ -1,0 +1,13 @@
+{
+  "id": "/PokeSouth/",
+  "name": "Poké Companion — Pokémon GO",
+  "short_name": "Poké Companion",
+  "description": "Your personal Pokémon GO command centre.",
+  "start_url": "/PokeSouth/",
+  "scope": "/PokeSouth/",
+  "display": "standalone",
+  "background_color": "#111318",
+  "theme_color": "#111318",
+  "orientation": "portrait-primary",
+  "categories": ["games", "utilities"]
+}
