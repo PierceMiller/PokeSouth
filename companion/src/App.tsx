@@ -196,6 +196,7 @@ function App() {
   const [session, setSession] = useState<{ user: User } | null>(null);
   const [loading, setLoading] = useState(true);
   const [dataReady, setDataReady] = useState(false);
+  const [loadAttempt, setLoadAttempt] = useState(0);
   const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -205,12 +206,18 @@ function App() {
 
   useEffect(() => {
     let alive = true;
-    supabase.auth.getSession().then(({ data, error }) => {
-      if (!alive) return;
-      if (error) setAuthError(error.message);
-      setSession(data.session ? { user: data.session.user } : null);
-      setLoading(false);
-    });
+    supabase.auth.getSession()
+      .then(({ data, error }) => {
+        if (!alive) return;
+        if (error) setAuthError(error.message);
+        setSession(data.session ? { user: data.session.user } : null);
+        setLoading(false);
+      })
+      .catch((error: unknown) => {
+        if (!alive) return;
+        setAuthError(error instanceof Error ? error.message : 'Could not restore your sign-in session.');
+        setLoading(false);
+      });
     const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
       if (!alive) return;
       setSession(nextSession ? { user: nextSession.user } : null);
@@ -226,47 +233,68 @@ function App() {
     const userId = session.user.id;
     const hydrate = async () => {
       setDataReady(false);
+      setAuthError('');
       const [collectionResult, goalsResult] = await Promise.all([
         supabase.from('pokemon_collection').select('pokemon_id').eq('user_id', userId),
         supabase.from('user_goals').select('title').eq('user_id', userId).order('created_at', { ascending: true }),
       ]);
       if (cancelled) return;
       if (collectionResult.error || goalsResult.error) {
-        setAuthError(`Could not load your cloud data: ${collectionResult.error?.message || goalsResult.error?.message}. Check the Supabase table permissions and RLS policies.`);
-        setDataReady(true);
+        setAuthError(`Could not load your cloud data: ${collectionResult.error?.message || goalsResult.error?.message}. Your saved data has not been changed. Check table permissions and RLS policies, then retry.`);
         return;
       }
-      const remoteOwned = (collectionResult.data || []).map(row => Number(row.pokemon_id)).filter(Number.isFinite);
-      const remoteGoals = (goalsResult.data || []).map(row => String(row.title));
+
+      const remoteOwned = [...new Set((collectionResult.data || []).map(row => Number(row.pokemon_id)).filter(Number.isFinite))];
+      const remoteGoals = [...new Set((goalsResult.data || []).map(row => String(row.title)))];
       const legacyMigrated = localStorage.getItem('pokesouth-legacy-migrated') === 'true';
-      if (!legacyMigrated && remoteOwned.length === 0 && remoteGoals.length === 0) {
+      let mergedOwned = remoteOwned;
+      let mergedGoals = remoteGoals;
+
+      if (!legacyMigrated) {
         let oldOwned: number[] = [25, 6, 133];
         let oldGoals: string[] = ['Find a perfect IV Pokémon', 'Build a raid-ready team'];
-        try { oldOwned = JSON.parse(localStorage.getItem('pokego-owned') || '[25,6,133]') as number[]; } catch { /* use defaults */ }
-        try { oldGoals = JSON.parse(localStorage.getItem('pokego-targets') || '["Find a perfect IV Pokémon","Build a raid-ready team"]') as string[]; } catch { /* use defaults */ }
-        const inserts = await Promise.all([
-          oldOwned.length ? supabase.from('pokemon_collection').insert(oldOwned.map(id => ({ user_id: userId, pokemon_id: id, species_name: ({25:'Pikachu',6:'Charizard',133:'Eevee',150:'Mewtwo',94:'Gengar',249:'Lugia',384:'Rayquaza',445:'Garchomp',448:'Lucario',4481:'Umbreon',3841:'Dragonite',487:'Giratina'} as Record<number,string>)[id] || `Pokémon #${id}` }))) : Promise.resolve({ error: null }),
-          oldGoals.length ? supabase.from('user_goals').insert(oldGoals.map(title => ({ user_id: userId, title }))) : Promise.resolve({ error: null }),
+        try {
+          const parsed = JSON.parse(localStorage.getItem('pokego-owned') || '[25,6,133]');
+          if (Array.isArray(parsed)) oldOwned = parsed.map(Number).filter(Number.isFinite);
+        } catch { /* use defaults */ }
+        try {
+          const parsed = JSON.parse(localStorage.getItem('pokego-targets') || '["Find a perfect IV Pokémon","Build a raid-ready team"]');
+          if (Array.isArray(parsed)) oldGoals = parsed.filter((value): value is string => typeof value === 'string' && value.trim().length > 0);
+        } catch { /* use defaults */ }
+
+        mergedOwned = [...new Set([...remoteOwned, ...oldOwned])];
+        mergedGoals = [...new Set([...remoteGoals, ...oldGoals])];
+        const remoteIds = new Set(remoteOwned);
+        const remoteGoalTitles = new Set(remoteGoals);
+        const names: Record<number, string> = {25:'Pikachu',150:'Mewtwo',6:'Charizard',448:'Lucario',94:'Gengar',249:'Lugia',384:'Rayquaza',445:'Garchomp',4481:'Umbreon',133:'Eevee',3841:'Dragonite',487:'Giratina'};
+        const [collectionInsert, goalsInsert] = await Promise.all([
+          mergedOwned.filter(id => !remoteIds.has(id)).length
+            ? supabase.from('pokemon_collection').insert(mergedOwned.filter(id => !remoteIds.has(id)).map(id => ({ user_id: userId, pokemon_id: id, species_name: names[id] || `Pokémon #${id}` })))
+            : Promise.resolve({ error: null }),
+          mergedGoals.filter(title => !remoteGoalTitles.has(title)).length
+            ? supabase.from('user_goals').insert(mergedGoals.filter(title => !remoteGoalTitles.has(title)).map(title => ({ user_id: userId, title })))
+            : Promise.resolve({ error: null }),
         ]);
         if (cancelled) return;
-        if (inserts.some(result => result.error)) {
-          setAuthError('Your existing local data could not be fully migrated. Your browser copy has been kept; check the database policies before trying again.');
-          setDataReady(true);
+        if (collectionInsert.error || goalsInsert.error) {
+          setAuthError(`Your existing browser data could not be fully merged: ${collectionInsert.error?.message || goalsInsert.error?.message}. Nothing was deleted; retry to finish syncing.`);
           return;
         }
+        localStorage.setItem('pokego-owned', JSON.stringify(mergedOwned));
+        localStorage.setItem('pokego-targets', JSON.stringify(mergedGoals));
         localStorage.setItem('pokesouth-legacy-migrated', 'true');
-        localStorage.setItem('pokego-owned', JSON.stringify(oldOwned));
-        localStorage.setItem('pokego-targets', JSON.stringify(oldGoals));
       } else {
         localStorage.setItem('pokego-owned', JSON.stringify(remoteOwned));
         localStorage.setItem('pokego-targets', JSON.stringify(remoteGoals));
-        localStorage.setItem('pokesouth-legacy-migrated', 'true');
       }
+      if (cancelled) return;
       setDataReady(true);
     };
-    void hydrate();
+    void hydrate().catch((error: unknown) => {
+      if (!cancelled) setAuthError(error instanceof Error ? error.message : 'Could not sync your cloud data. Please retry.');
+    });
     return () => { cancelled = true; };
-  }, [session?.user.id]);
+  }, [session?.user.id, loadAttempt]);
 
   useEffect(() => {
     if (!session?.user || !dataReady) return;
@@ -330,7 +358,11 @@ function App() {
     setAuthBusy(true); setAuthError(''); setAuthMessage('');
     try {
       if (authMode === 'signup') {
-        const { data, error } = await supabase.auth.signUp({ email: email.trim(), password });
+        const { data, error } = await supabase.auth.signUp({
+          email: email.trim(),
+          password,
+          options: { emailRedirectTo: `${window.location.origin}${import.meta.env.BASE_URL}` },
+        });
         if (error) throw error;
         if (!data.session) setAuthMessage('Account created. Check your email for a confirmation link, then return here to sign in.');
         else setAuthMessage('Account created successfully.');
@@ -371,8 +403,8 @@ function App() {
       </div>
     </div>
   );
-  if (!dataReady) return <div className="auth-screen"><div className="auth-card"><div className="brand-mark"><Sparkles size={22}/></div><h1>Loading your collection…</h1><p>Syncing your Pokémon and goals securely.</p>{authError && <div className="auth-error">{authError}</div>}</div></div>;
-  return <Dashboard user={session.user} onSignOut={async () => { await supabase.auth.signOut(); }}/>;
+  if (!dataReady) return <div className="auth-screen"><div className="auth-card"><div className="brand-mark"><Sparkles size={22}/></div><h1>{authError ? 'Could not load your data.' : 'Loading your collection…'}</h1><p>{authError ? 'Your cloud records have not been deleted or overwritten. Check your connection and try again.' : 'Syncing your Pokémon and goals securely.'}</p>{authError && <div className="auth-error" role="alert">{authError}</div>}{authError && <button className="primary-button auth-submit" onClick={() => { setAuthError(''); setLoadAttempt(attempt => attempt + 1); }}>Retry cloud sync</button>}<button className="auth-mode-button" onClick={() => { void supabase.auth.signOut(); }}>Sign out</button></div></div>;
+  return <Dashboard user={session.user} onSignOut={async () => { const { error } = await supabase.auth.signOut(); if (error) window.dispatchEvent(new CustomEvent('pokesouth:notice', { detail: `Sign out failed: ${error.message}` })); }}/>;
 }
 
 function Stat({ icon, label, value, note, tone }: { icon: React.ReactNode; label: string; value: string; note: string; tone: string }) {
