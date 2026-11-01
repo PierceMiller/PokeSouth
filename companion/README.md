@@ -23,14 +23,17 @@ Copy `.env.example` to `.env.local` only if you want to configure those values l
 
 Project: [PokeSouth Companion](https://supabase.com/dashboard/project/gczgersvlsvlqrdwjwjz)
 
-The client uses Supabase email/password authentication and the existing `public.pokemon_collection` and `public.user_goals` tables. Both tables have Row Level Security enabled, with ownership policies tied to `auth.uid()`.
+The client uses Supabase email/password authentication and the existing `public.pokemon_collection` and `public.user_goals` tables. Both tables have Row Level Security enabled, with select/insert/update/delete ownership policies tied to `auth.uid()`. The project URL and publishable key have been retrieved from the connected Supabase project and configured in `src/lib/supabase.ts` and `.env.example`. A publishable key is designed to be visible in browser code; never put a `service_role` or secret key in this app.
 
-In Supabase Dashboard, verify:
-1. **Authentication → Sign In / Providers**: Email provider is enabled.
-2. **Authentication → URL Configuration**: set the Site URL to `https://piercemiller.github.io/PokeSouth/` and add that URL to the allowed redirect URLs (also add `http://localhost:5173/PokeSouth/` for local development if needed).
-3. If email confirmation is enabled, sign-up users must click the confirmation link before signing in.
+**Authentication dashboard settings still need a manual check.** The connected tools can verify database policies and retrieve the public client key, but they cannot read or change the project's Auth provider/URL settings. Open the [Supabase project](https://supabase.com/dashboard/project/gczgersvlsvlqrdwjwjz) and verify:
+1. **Authentication → Sign In / Providers → Email**: enable Email/password sign-in.
+2. **Authentication → URL Configuration → Site URL**: set `https://piercemiller.github.io/PokeSouth/`.
+3. Under **Redirect URLs**, allow `https://piercemiller.github.io/PokeSouth/`. For local development, also allow `http://localhost:5173/PokeSouth/`.
+4. If email confirmation is enabled, sign-up users must click the confirmation link before signing in. The app explicitly redirects confirmation links to the repository's base URL.
 
-On first sign-in, existing browser-local collection/goals are migrated to the first account once if that account's cloud tables are empty. After that, changes sync to the signed-in account. Signing out does not delete cloud data. RLS protects rows even though the publishable key is visible in the browser.
+For local development, copy `.env.example` to `.env.local` and edit `VITE_SUPABASE_URL` or `VITE_SUPABASE_PUBLISHABLE_KEY` only if you need to override the configured project values. These are public client settings, not secrets. The current GitHub Pages build has safe public fallbacks, so no private GitHub Actions secret is required for the URL/key.
+
+On the first sign-in in a browser, the app merges its existing browser-local collection/goals with the signed-in account's cloud rows, adding missing species IDs and goal titles without deleting existing cloud rows. After the merge succeeds, collection/goal changes sync to that account. Signing out does not delete cloud data.
 
 ## Build and deployment
 
