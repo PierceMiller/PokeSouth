@@ -276,16 +276,32 @@ function App() {
         try { owned = JSON.parse(localStorage.getItem('pokego-owned') || '[]') as number[]; } catch { /* keep empty */ }
         try { goals = JSON.parse(localStorage.getItem('pokego-targets') || '[]') as string[]; } catch { /* keep empty */ }
         const names: Record<number, string> = {25:'Pikachu',150:'Mewtwo',6:'Charizard',448:'Lucario',94:'Gengar',249:'Lugia',384:'Rayquaza',445:'Garchomp',4481:'Umbreon',133:'Eevee',3841:'Dragonite',487:'Giratina'};
-        const deletedCollection = await supabase.from('pokemon_collection').delete().eq('user_id', userId);
-        if (deletedCollection.error) throw deletedCollection.error;
-        if (owned.length) {
-          const saved = await supabase.from('pokemon_collection').insert(owned.map(id => ({ user_id: userId, pokemon_id: id, species_name: names[id] || `Pokémon #${id}` })));
+        const remoteCollection = await supabase.from('pokemon_collection').select('pokemon_id').eq('user_id', userId);
+        if (remoteCollection.error) throw remoteCollection.error;
+        const remoteIds = new Set((remoteCollection.data || []).map(row => Number(row.pokemon_id)));
+        const wantedIds = new Set(owned);
+        const removeIds = [...remoteIds].filter(id => !wantedIds.has(id));
+        const addIds = [...wantedIds].filter(id => !remoteIds.has(id));
+        if (removeIds.length) {
+          const removed = await supabase.from('pokemon_collection').delete().eq('user_id', userId).in('pokemon_id', removeIds);
+          if (removed.error) throw removed.error;
+        }
+        if (addIds.length) {
+          const saved = await supabase.from('pokemon_collection').insert(addIds.map(id => ({ user_id: userId, pokemon_id: id, species_name: names[id] || `Pokémon #${id}` })));
           if (saved.error) throw saved.error;
         }
-        const deletedGoals = await supabase.from('user_goals').delete().eq('user_id', userId);
-        if (deletedGoals.error) throw deletedGoals.error;
-        if (goals.length) {
-          const savedGoals = await supabase.from('user_goals').insert(goals.map(title => ({ user_id: userId, title })));
+        const remoteGoals = await supabase.from('user_goals').select('title').eq('user_id', userId);
+        if (remoteGoals.error) throw remoteGoals.error;
+        const existingGoals = new Set((remoteGoals.data || []).map(row => String(row.title)));
+        const wantedGoals = new Set(goals);
+        const removeGoals = [...existingGoals].filter(title => !wantedGoals.has(title));
+        const addGoals = [...wantedGoals].filter(title => !existingGoals.has(title));
+        if (removeGoals.length) {
+          const removed = await supabase.from('user_goals').delete().eq('user_id', userId).in('title', removeGoals);
+          if (removed.error) throw removed.error;
+        }
+        if (addGoals.length) {
+          const savedGoals = await supabase.from('user_goals').insert(addGoals.map(title => ({ user_id: userId, title })));
           if (savedGoals.error) throw savedGoals.error;
         }
       }).catch((error: unknown) => {
