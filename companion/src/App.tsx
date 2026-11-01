@@ -251,16 +251,25 @@ function App() {
       let mergedGoals = remoteGoals;
 
       if (!legacyMigrated) {
-        let oldOwned: number[] = [25, 6, 133];
-        let oldGoals: string[] = ['Find a perfect IV Pokémon', 'Build a raid-ready team'];
+        // Seed the starter examples only for a truly empty account. If cloud data
+        // already exists, merge only browser values that were actually saved.
+        const shouldSeedDefaults = remoteOwned.length === 0 && remoteGoals.length === 0;
+        let oldOwned: number[] = shouldSeedDefaults ? [25, 6, 133] : [];
+        let oldGoals: string[] = shouldSeedDefaults ? ['Find a perfect IV Pokémon', 'Build a raid-ready team'] : [];
         try {
-          const parsed = JSON.parse(localStorage.getItem('pokego-owned') || '[25,6,133]');
-          if (Array.isArray(parsed)) oldOwned = parsed.map(Number).filter(Number.isFinite);
-        } catch { /* use defaults */ }
+          const stored = localStorage.getItem('pokego-owned');
+          if (stored !== null) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed)) oldOwned = parsed.map(Number).filter(Number.isFinite);
+          }
+        } catch { /* retain empty-account defaults when applicable */ }
         try {
-          const parsed = JSON.parse(localStorage.getItem('pokego-targets') || '["Find a perfect IV Pokémon","Build a raid-ready team"]');
-          if (Array.isArray(parsed)) oldGoals = parsed.filter((value): value is string => typeof value === 'string' && value.trim().length > 0);
-        } catch { /* use defaults */ }
+          const stored = localStorage.getItem('pokego-targets');
+          if (stored !== null) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed)) oldGoals = parsed.filter((value): value is string => typeof value === 'string' && value.trim().length > 0);
+          }
+        } catch { /* retain empty-account defaults when applicable */ }
 
         mergedOwned = [...new Set([...remoteOwned, ...oldOwned])];
         mergedGoals = [...new Set([...remoteGoals, ...oldGoals])];
