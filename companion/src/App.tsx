@@ -58,6 +58,15 @@ function Dashboard({ user, onSignOut }: { user: User; onSignOut: () => Promise<v
   const [mobileMenu, setMobileMenu] = useState(false);
   const [notice, setNotice] = useState('');
 
+  useEffect(() => {
+    const handler = (event: Event) => {
+      setNotice((event as CustomEvent<string>).detail);
+      window.setTimeout(() => setNotice(''), 3200);
+    };
+    window.addEventListener('pokesouth:notice', handler);
+    return () => window.removeEventListener('pokesouth:notice', handler);
+  }, []);
+
   const collection = useMemo(() => pokemon.filter(p => {
     const matchesQuery = p.name.toLowerCase().includes(query.toLowerCase()) || p.type.toLowerCase().includes(query.toLowerCase());
     const matchesFilter = filter === 'All' || (filter === 'Owned' ? owned.includes(p.id) : filter === 'Targets' ? targets.some(t => t.toLowerCase().includes(p.name.toLowerCase())) : p.rarity === filter);
