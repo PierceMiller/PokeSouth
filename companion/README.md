@@ -12,33 +12,44 @@ npm install
 npm run dev
 ```
 
-Build for production:
+The app is configured for the dedicated Supabase project. The URL and **publishable** key are public client configuration (not secrets); they are also available as Vite variables if you want to override them locally:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
+
+Copy `.env.example` to `.env.local` only if you want to configure those values locally. Never put a Supabase `service_role` or secret key in this frontend.
+
+## Supabase setup
+
+Project: [PokeSouth Companion](https://supabase.com/dashboard/project/gczgersvlsvlqrdwjwjz)
+
+The client uses Supabase email/password authentication and the existing `public.pokemon_collection` and `public.user_goals` tables. Both tables have Row Level Security enabled, with ownership policies tied to `auth.uid()`.
+
+In Supabase Dashboard, verify:
+1. **Authentication → Sign In / Providers**: Email provider is enabled.
+2. **Authentication → URL Configuration**: set the Site URL to `https://piercemiller.github.io/PokeSouth/` and add that URL to the allowed redirect URLs (also add `http://localhost:5173/PokeSouth/` for local development if needed).
+3. If email confirmation is enabled, sign-up users must click the confirmation link before signing in.
+
+On first sign-in, existing browser-local collection/goals are migrated to the first account once if that account's cloud tables are empty. After that, changes sync to the signed-in account. Signing out does not delete cloud data. RLS protects rows even though the publishable key is visible in the browser.
+
+## Build and deployment
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Deployment
+The GitHub Actions workflow at `.github/workflows/pokesouth-companion-pages.yml` builds `companion/` and deploys the static output to GitHub Pages. Vite is configured for the repository project page at `/PokeSouth/`. If Pages has not been enabled, open **Settings → Pages** and choose **GitHub Actions** as the build and deployment source.
 
-The GitHub Actions workflow at `.github/workflows/pokesouth-companion-pages.yml` builds `companion/` and deploys the static output to GitHub Pages. The Vite base path is configured for the repository project page: `/PokeSouth/`.
-
-If Pages has not been enabled for this repository, open **Settings → Pages** and choose **GitHub Actions** as the build and deployment source.
-
-## Current first-build features
+## Current features
 
 - Responsive dark dashboard and mobile navigation
+- Email/password sign-up, sign-in and sign-out
+- Account-specific Pokémon collection and goal sync through Supabase
+- RLS-protected user data
 - Searchable starter species catalogue
-- Local collection tracking and personal goals (browser local storage)
 - Installable PWA manifest and basic app-shell caching
 - GitHub Pages deployment workflow
-
-## Roadmap
-
-1. Add a verified Pokémon GO game-data ingestion source and freshness indicators.
-2. Add Supabase Auth, personal collection sync, RLS-protected tables and backups.
-3. Add raid/PvP calculators, event tracking and goal recommendations.
-4. Add scheduled refresh jobs and opt-in Discord webhook alerts.
 
 ## Important data note
 
