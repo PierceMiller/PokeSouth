@@ -8,3 +8,9 @@
 /build
 /captures
 .externalNativeBuild
+
+# Local environment overrides for the companion web app
+.env
+.env.*
+!.env.example
+*.local
