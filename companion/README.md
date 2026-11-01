@@ -30,6 +30,7 @@ The client uses Supabase email/password authentication and the existing `public.
 2. **Authentication → URL Configuration → Site URL**: set `https://piercemiller.github.io/PokeSouth/`.
 3. Under **Redirect URLs**, allow `https://piercemiller.github.io/PokeSouth/`. For local development, also allow `http://localhost:5173/PokeSouth/`.
 4. If email confirmation is enabled, sign-up users must click the confirmation link before signing in. The app explicitly redirects confirmation links to the repository's base URL.
+5. **Authentication → Password Security**: enable leaked-password protection. The Supabase security advisor currently reports this protection as disabled; the connected tools cannot change this Auth setting.
 
 For local development, copy `.env.example` to `.env.local` and edit `VITE_SUPABASE_URL` or `VITE_SUPABASE_PUBLISHABLE_KEY` only if you need to override the configured project values. These are public client settings, not secrets. The current GitHub Pages build has safe public fallbacks, so no private GitHub Actions secret is required for the URL/key.
 
