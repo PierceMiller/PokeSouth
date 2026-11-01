@@ -46,10 +46,21 @@ The GitHub Actions workflow at `.github/workflows/pokesouth-companion-pages.yml`
 - Responsive dark dashboard and mobile navigation
 - Email/password sign-up, sign-in and sign-out
 - Account-specific Pokémon collection and goal sync through Supabase
+- Private individual-Pokémon inventory import from companion-app CSV exports (PokéGenie-style)
 - RLS-protected user data
 - Searchable starter species catalogue
 - Installable PWA manifest and basic app-shell caching
 - GitHub Pages deployment workflow
+
+## Import your actual Pokémon collection
+
+1. On Android, open the companion tool you use (for example PokéGenie) and open **My Pokémon**.
+2. Use its **Export as CSV** option and save/share the CSV to your phone or computer. Menu labels may differ by app/version.
+3. Open PokéSouth Companion, sign in, select **Collection**, choose **CSV export**, review the preview, then select **Import**.
+4. The CSV is parsed locally in your browser before upload. Only the selected inventory records are sent to the signed-in Supabase account. No Pokémon GO password, session token, or game-server connection is used.
+5. Re-import after updating your companion-app export. Re-importing the same file updates matching rows; it is not a live sync.
+
+The importer is designed around common PokéGenie-style CSV headers and accepts several header variants. Different companion apps may export different columns; missing fields remain blank, and a file that does not include recognizable Pokémon names will be rejected. The separate `pokemon_inventory` table uses Row Level Security policies so users can only read or change their own imported records. Its schema is documented in `companion/supabase/pokemon_inventory.sql`.
 
 ## Important data note
 
