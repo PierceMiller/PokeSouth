@@ -356,7 +356,7 @@ function App() {
         <div className="auth-brand"><div className="brand-mark"><Sparkles size={22}/></div><div><strong>POKÉ COMPANION</strong><small>YOUR GO COMMAND CENTRE</small></div></div>
         <div className="eyebrow">YOUR PERSONAL TRAINER SPACE</div>
         <h1>{authMode === 'signin' ? 'Welcome back.' : 'Create your trainer account.'}</h1>
-        <p className="auth-intro">Sign in to keep your collection and goals synced between your PC and iPhone.</p>
+        <p className="auth-intro">Sign in to keep your collection and goals synced between your PC and Android phone.</p>
         <form className="auth-form" onSubmit={submitAuth}>
           <label htmlFor="trainer-email">Email address</label>
           <input id="trainer-email" type="email" autoComplete="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com"/>
