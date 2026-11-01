@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { supabase } from './lib/supabase';
+import PokemonImportPanel from './PokemonImportPanel';
 import {
   Activity, Bell, CalendarDays, Check, ChevronDown, CircleHelp, Compass, Flame,
   Grid2X2, Heart, Menu, Plus, Search, Settings2, Shield, Sparkles, Swords,
@@ -167,6 +168,8 @@ function Dashboard({ user, onSignOut }: { user: User; onSignOut: () => Promise<v
               </div>
             </section>
           </>}
+
+          {active === 'Collection' && <PokemonImportPanel user={user} />}
 
           {isDex && <section className="panel dex-panel">
             <div className="dex-toolbar"><div className="search-field"><Search size={17}/><input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search Pokémon or type..." aria-label="Search Pokémon"/></div><select value={filter} onChange={e => setFilter(e.target.value)} aria-label="Filter collection"><option>All</option><option>Owned</option><option>Targets</option><option>Legendary</option><option>Rare</option><option>Common</option><option>Uncommon</option></select></div>
