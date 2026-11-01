@@ -100,7 +100,7 @@ export function parsePokemonCsv(text: string): { rows: ImportedPokemon[]; errors
     const occurrence = (duplicateCounts.get(occurrenceKey) || 0) + 1;
     duplicateCounts.set(occurrenceKey, occurrence);
     rows.push({
-      source: 'poke genie',
+      source: 'companion csv',
       source_key: hash(`${occurrenceKey}|${occurrence}`),
       pokemon_id: dex && dex > 0 ? dex : null,
       species_name: species.trim(),
