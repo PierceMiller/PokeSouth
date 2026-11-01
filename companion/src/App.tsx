@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { SupabaseClient, User } from '@supabase/supabase-js';
+import type { User } from '@supabase/supabase-js';
 import { supabase } from './lib/supabase';
 import {
   Activity, Bell, CalendarDays, Check, ChevronDown, CircleHelp, Compass, Flame,
@@ -41,7 +41,7 @@ const sprite = (id: number) => {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${normalized}.png`;
 };
 
-function Dashboard({ user, supabase, onSignOut }: { user: User; supabase: SupabaseClient; onSignOut: () => Promise<void> }) {
+function Dashboard({ user, onSignOut }: { user: User; onSignOut: () => Promise<void> }) {
   const [active, setActive] = useState('Overview');
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('All');
@@ -344,7 +344,7 @@ function App() {
     </div>
   );
   if (!dataReady) return <div className="auth-screen"><div className="auth-card"><div className="brand-mark"><Sparkles size={22}/></div><h1>Loading your collection…</h1><p>Syncing your Pokémon and goals securely.</p>{authError && <div className="auth-error">{authError}</div>}</div></div>;
-  return <Dashboard user={session.user} supabase={supabase} onSignOut={async () => { await supabase.auth.signOut(); }}/>;
+  return <Dashboard user={session.user} onSignOut={async () => { await supabase.auth.signOut(); }}/>;
 }
 
 function Stat({ icon, label, value, note, tone }: { icon: React.ReactNode; label: string; value: string; note: string; tone: string }) {
