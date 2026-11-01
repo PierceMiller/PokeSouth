@@ -16,3 +16,38 @@
 .auth-error,.auth-message{padding:11px 12px;border-radius:9px;font-size:12px;line-height:1.55;overflow-wrap:anywhere}.auth-error{border:1px solid #8e414b;background:#4a2028;color:#ffdce0}.auth-message{border:1px solid #3b785f;background:#1b3c30;color:#d3ffea}.auth-mode-button{width:100%;margin-top:19px;padding:10px;border:0;background:transparent;color:#c5b5ff;font-size:12px;cursor:pointer}.auth-footnote{display:flex;align-items:center;justify-content:center;gap:7px;margin:22px 0 0!important;font-size:10px!important}.signout-button{border:1px solid #373744;border-radius:9px;padding:8px 11px;background:#24242d;color:#ddd8ed;font-size:11px;cursor:pointer}.signout-button:hover{border-color:#8d78c6}
 .profile-text{min-width:0;flex:1}.profile-chip .profile-text strong,.profile-chip .profile-text small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.profile-chip .profile-text small{max-width:145px}
 @media(max-width:540px){.auth-card{padding:25px 21px;border-radius:19px}.auth-card h1{font-size:26px}.top-actions{gap:8px}.sync-status{font-size:9px}.signout-button{padding:7px 8px;font-size:10px}}
+
+
+/* Personal Pokémon inventory CSV import */
+.import-panel{margin-bottom:18px;padding:19px}
+.import-panel .panel-heading h3{display:flex;align-items:center;gap:8px}
+.import-safety{display:flex;align-items:flex-start;gap:9px;margin:15px 0;padding:12px;border:1px solid #49415e;border-radius:10px;background:#282334;color:#c8c0dc;font-size:10px;line-height:1.65}
+.import-safety svg{flex:none;color:#c2aaff;margin-top:1px}
+.file-input-hidden{display:none}
+.import-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.import-actions .primary-button,.import-preview-heading .primary-button{display:inline-flex;align-items:center;gap:8px}
+.import-muted{font-size:10px;color:#888a9b}
+.import-file{display:flex;align-items:center;gap:7px;margin:12px 0 0;color:#c7c2d6;font-size:11px;overflow-wrap:anywhere}
+.import-success,.import-error{display:flex;align-items:flex-start;gap:8px;padding:11px 12px;border-radius:9px;margin-top:12px;font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.import-success{border:1px solid #355d49;background:#20362b;color:#b3efc7}
+.import-error{border:1px solid #74404a;background:#41232a;color:#ffd5dc}
+.import-success svg,.import-error svg{flex:none;margin-top:1px}
+.import-warnings{display:flex;flex-direction:column;gap:5px;margin-top:12px;padding:11px;border:1px solid #665333;border-radius:9px;background:#342d20;color:#edcf96;font-size:10px}
+.import-preview-heading,.import-saved-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 0 10px}
+.import-preview-heading>strong{font-size:12px}
+.import-saved-heading{padding-top:16px;border-top:1px solid #343540}
+.import-saved-heading h4{font:600 13px 'Space Grotesk',sans-serif;margin:0;color:#eeeaf8}
+.import-saved-heading p{margin:5px 0 0;color:#8d8fa0;font-size:10px}
+.import-table-wrap{overflow-x:auto;border:1px solid #333540;border-radius:9px}
+.import-table{width:100%;border-collapse:collapse;text-align:left;min-width:430px}
+.import-table th{background:#17181e;color:#8f91a2;font-size:9px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.import-table td,.import-table th{padding:10px 12px;border-bottom:1px solid #30313b;font-size:10px}
+.import-table td{color:#c6c5d1}
+.import-table tbody tr:last-child td{border-bottom:0}
+.import-table td strong,.import-table td small{display:block}
+.import-table td strong{color:#f0edf8;font-size:10px}
+.import-table td small{margin-top:4px;color:#9698a8;font-size:9px}
+.import-table-wrap>.import-muted{padding:0 12px 10px;margin:10px 0}
+.import-empty{padding:18px 0;color:#9b9cad;font-size:11px;line-height:1.7}
+.import-preview-heading .primary-button:disabled,.import-panel .icon-button:disabled{opacity:.55;cursor:wait}
+@media(max-width:540px){.import-panel{padding:13px}.import-preview-heading{align-items:flex-start;flex-direction:column}.import-preview-heading .primary-button{width:100%;justify-content:center}.import-actions .primary-button{width:100%;justify-content:center}.import-safety{font-size:10px}}
